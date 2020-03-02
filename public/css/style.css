@@ -1,0 +1,12 @@
+body{
+  background-color: red;
+}
+
+@font-face {
+  font-family: 'Alice';
+  src: 'https://fonts.googleapis.com/css?family=Alice&display=swap';
+}
+
+.display-1{
+  font-family: 'Alice' !important;
+}
