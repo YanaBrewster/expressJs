@@ -106,15 +106,16 @@ app.get('/cars' , (req, res)=>{
 app.get('/cars/year=:year&colour=:colour',(req,res)=>{
   const yearParam = req.params.year;
   const colourParam = req.params.colour; //retrieves the parameter value requested by the user
+
     let filteredArray = [];//array to push the matching objects to user's value
-    for (let i = 0; i < apiCarData.length; i++) {
-      if ((colourParam.toLowerCase() === apiCarData[i].car_colour.toLowerCase()) && (yearParam.toLowerCase() === apiCarData[i].car_model_year.toLowerCase())){
-        filteredArray.push(apiCarData[i]);
+    for (let a = 0; a < apiCarData.length; a++) {
+      if ((yearParam === apiCarData[a].car_model_year) && (colourParam.toLowerCase() === apiCarData[a].car_colour.toLowerCase())){
+        filteredArray.push(apiCarData[a]);
       }
     }
     res.send(filteredArray);
   {
-    // res.send('Invalid parameter');
+    res.send('Invalid parameter');
   }
 });
 
