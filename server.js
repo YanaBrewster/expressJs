@@ -87,21 +87,21 @@ app.get('/cars' , (req, res)=>{
   res.json(apiCarData);
 });
 
-// app.get('/cars/make=:make&model=:model',(req,res)=>{
-//   const makeParam = req.params.make;
-//   const modelParam = req.params.model; //retrieves the parameter value requested by the user
-//
-//     let filteredArray = [];//array to push the matching objects to user's value
-//     for (let i = 0; i < apiCarData.length; i++) {
-//       if ((modelParam.toLowerCase() === apiCarData[i].car_model.toLowerCase()) && (makeParam.toLowerCase() === apiCarData[i].car_make.toLowerCase())){
-//         filteredArray.push(apiCarData[i]);
-//       }
-//     }
-//     res.send(filteredArray);
-//   {
-//     res.send('Invalid parameter');
-//   }
-// });
+app.get('/cars/make=:make&model=:model',(req,res)=>{
+  const makeParam = req.params.make;
+  const modelParam = req.params.model; //retrieves the parameter value requested by the user
+
+    let filteredArray = [];//array to push the matching objects to user's value
+    for (let i = 0; i < apiCarData.length; i++) {
+      if ((modelParam.toLowerCase() === apiCarData[i].car_model.toLowerCase()) && (makeParam.toLowerCase() === apiCarData[i].car_make.toLowerCase())){
+        filteredArray.push(apiCarData[i]);
+      }
+    }
+    res.send(filteredArray);
+  {
+    res.send('Invalid parameter');
+  }
+});
 
 app.get('/cars/y=:year&c=:colour',(req,res)=>{
   const yearParam = req.params.year;
@@ -109,7 +109,7 @@ app.get('/cars/y=:year&c=:colour',(req,res)=>{
 
     let filteredArray = [];//array to push the matching objects to user's value
     for (let a = 0; a < apiCarData.length; a++) {
-      if ((yearParam === apiCarData[a].car_model_year) && (colourParam.toLowerCase() === apiCarData[a].car_colour.toLowerCase())){
+      if ((yearParam.toString() === apiCarData[a].car_model_year.toString()) && (colourParam.toLowerCase() === apiCarData[a].car_colour.toLowerCase())){
         filteredArray.push(apiCarData[a]);
       }
     }
