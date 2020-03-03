@@ -51,20 +51,20 @@ app.get('/people' , (req, res)=>{
 
 // API parameters, getting them and looping them
 // examples
-// app.get('/gender/g=:gender',(req,res)=>{
-//   const genderParam = req.params.gender; //retrieves the parameter value requested by the user
-//   if ((genderParam === 'male') || (genderParam === 'female')){
-//     let filteredArray = [];//array to push the matching objects to user's value
-//     for (let i = 0; i < apiData.length; i++) {
-//       if (genderParam === apiData[i].gender.toLowerCase()){
-//         filteredArray.push(apiData[i]);
-//       }
-//     }
-//     res.send(filteredArray);
-//   } else {
-//     res.send('Invalid parameter');
-//   }
-// });
+app.get('/gender/g=:gender',(req,res)=>{
+  const genderParam = req.params.gender; //retrieves the parameter value requested by the user
+  if ((genderParam === 'male') || (genderParam === 'female')){
+    let filteredArray = [];//array to push the matching objects to user's value
+    for (let i = 0; i < apiData.length; i++) {
+      if (genderParam === apiData[i].gender.toLowerCase()){
+        filteredArray.push(apiData[i]);
+      }
+    }
+    res.send(filteredArray);
+  } else {
+    res.send('Invalid parameter');
+  }
+});
 
 app.get('/first_name/f=:first_name',(req,res)=>{
   const first_nameParam = req.params.first_name; //retrieves the parameter value requested by the user
@@ -103,7 +103,7 @@ app.get('/cars' , (req, res)=>{
 //   }
 // });
 
-app.get('/cars/year=:year&colour=:colour',(req,res)=>{
+app.get('/cars/y=:year&c=:colour',(req,res)=>{
   const yearParam = req.params.year;
   const colourParam = req.params.colour; //retrieves the parameter value requested by the user
 
